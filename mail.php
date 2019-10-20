@@ -13,9 +13,9 @@ $form_name     = $_POST['form_name'];
 $email    = $_POST['email'];
 $phone   = $_POST['phone'];
 $no_of_persons   = $_POST['no_of_persons'];
-$preferred_food = $_POST['preferred_food'];
-$occasion = $_POST['occasion'];
-$verify   = $_POST['verify'];
+// $preferred_food = $_POST['preferred_food'];
+// $occasion = $_POST['occasion'];
+// $verify   = $_POST['verify'];
 
 if(trim($form_name) == '') {
 	echo '<div class="error_message">Attention! You must enter your name.</div>';
@@ -33,9 +33,9 @@ if(trim($date-picker) == '') {
 	exit();
 }
 
-if(get_magic_quotes_gpc()) {
-	$comments = stripslashes($comments);
-}
+// if(get_magic_quotes_gpc()) {
+// 	$comments = stripslashes($comments);
+// }
 
 
 // Configuration option.
@@ -43,7 +43,7 @@ if(get_magic_quotes_gpc()) {
 // Example $address = "joe.doe@yourdomain.com";
 
 //$address = "example@themeforest.net";
-$address = "example@yourdomain.com";
+$address = "nirajd327@gmail.com";
 
 
 // Configuration option.
@@ -58,11 +58,11 @@ $e_subject = 'You\'ve been contacted by ' . $form_name . '.';
 // You can change this if you feel that you need to.
 // Developers, you may wish to add more fields to the form, in which case you must be sure to add them here.
 
-$e_body = "You have been contacted by $first_name. $first_name selected service of $select_service, their additional message is as follows. Customer max budge is $select_price, for this project." . PHP_EOL . PHP_EOL;
-$e_content = "\"$comments\"" . PHP_EOL . PHP_EOL;
-$e_reply = "You can contact $first_name via email, $email or via phone $phone";
+$e_body = "You have been contacted by $form_name. Their additional message is as follows." . PHP_EOL . PHP_EOL;
+// $e_content = "\"$comments\"" . PHP_EOL . PHP_EOL;
+$e_reply = "You can contact $form_name via email, $email or via phone $phone";
 
-$msg = wordwrap( $e_body . $e_content . $e_reply, 70 );
+$msg = wordwrap( $e_body . $e_reply, 70 );
 
 $headers = "From: $email" . PHP_EOL;
 $headers .= "Reply-To: $email" . PHP_EOL;
